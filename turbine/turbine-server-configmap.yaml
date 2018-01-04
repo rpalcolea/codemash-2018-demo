@@ -1,0 +1,15 @@
+   kind: ConfigMap
+    apiVersion: v1
+    metadata:
+      name: turbine-server
+    data:¬
+     application.yml: |
+       turbine:
+         instanceUrlSuffix: :5050/hystrix.stream
+         aggregator:
+            clusterConfig: default,github-service,twitter-service,language-aggregator-api,languages-service
+            clusters:
+                language-aggregator-api: default.language-aggregator-api
+                twitter-service: default.github-service
+                github-service: default.twitter-service
+                languages-service: default.languages-service

@@ -1,0 +1,25 @@
+/scripts
+build/
+.gradle
+.gradletasknamecache
+.gradleCache/
+generated.build.info*.json
+caches/
+native/
+logs/
+classes/
+**/classes
+**/build
+**/out
+**/.lazybones
+.lazybones
+twitter-api/src/ratpack/twitter4j.properties 
+github-api/src/ratpack/application.properties
+
+# intellij
+.idea
+.shelf
+*.iml
+
+# mac
+.DS_Store

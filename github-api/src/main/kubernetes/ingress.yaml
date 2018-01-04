@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: github-service
+spec:
+  rules:
+  - host: github.codemash.org
+    http:
+        paths:
+        - backend:
+            serviceName: github-service
+            servicePort: 80

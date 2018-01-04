@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: languages-service
+spec:
+  rules:
+  - host: languages.codemash.org
+    http:
+        paths:
+        - backend:
+            serviceName: languages-service
+            servicePort: 80

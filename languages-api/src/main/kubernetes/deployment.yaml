@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: languages-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: languages-service
+    spec:
+      containers:
+      - name: languages-api
+        image: rpalcolea/languages-service:v1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

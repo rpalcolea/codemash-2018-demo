@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: github-service
+  labels:
+      hystrix.cluster: 'github-service'
+      hystrix.enabled: 'true'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: github-service
+        hystrix.cluster: 'github-service'
+        hystrix.enabled: 'true'
+    spec:
+      containers:
+      - name: github-service
+        image: rpalcolea/github-service:v1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5050

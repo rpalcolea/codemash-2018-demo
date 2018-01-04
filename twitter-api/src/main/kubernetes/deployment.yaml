@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: twitter-service
+  labels:
+        hystrix.cluster: 'twitter-service'
+        hystrix.enabled: 'true'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: twitter-service
+        hystrix.cluster: 'twitter-service'
+        hystrix.enabled: 'true'
+    spec:
+      containers:
+      - name: twitter-service
+        image: rpalcolea/twitter-service:v1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5050

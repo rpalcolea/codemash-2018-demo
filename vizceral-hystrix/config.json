@@ -1,0 +1,41 @@
+{
+  "regionName": "default",
+  "httpPort": 8081,
+  "timeoutPercentageThreshold": 0,
+  "failurePercentageThreshold": 0,
+  "turbine": {
+    "host": "turbine.codemash.org",
+    "port": 80,
+    "path": "/turbine.stream?cluster="
+  },
+  "entryClusters": [
+    "language-aggregator-api",
+    "github-service",
+    "twitter-service"
+  ],
+  "internetClusters": [
+    "language-aggregator-api"
+  ],
+  "hystrixGroupToCluster": [
+    {
+      "group": "twitter-service",
+      "cluster": "twitter-service"
+    },
+    {
+      "group": "languages-service",
+      "cluster": "languages-service"
+    },
+    {
+      "group": "github-service",
+      "cluster": "github-service"
+    },
+   {
+     "group": "github-api",
+     "cluster": "github-api"
+   },
+   {
+     "group": "twitter-api",
+     "cluster": "twitter-api"
+   }
+ ]
+}

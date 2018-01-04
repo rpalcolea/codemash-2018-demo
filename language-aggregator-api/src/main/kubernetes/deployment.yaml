@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: language-aggregator-api
+  labels:
+      hystrix.cluster: 'language-aggregator-api'
+      hystrix.enabled: 'true'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: language-aggregator-api
+        hystrix.cluster: 'language-aggregator-api'
+        hystrix.enabled: 'true'
+    spec:
+      containers:
+      - name: language-aggregator-api
+        image: rpalcolea/language-aggregator-api:v1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5050

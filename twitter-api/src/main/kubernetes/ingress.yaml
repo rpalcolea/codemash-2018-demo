@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: twitter-service
+spec:
+  rules:
+  - host: twitter.codemash.org
+    http:
+        paths:
+        - backend:
+            serviceName: twitter-service
+            servicePort: 80
